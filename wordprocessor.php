@@ -115,8 +115,8 @@ function getRandomString()
 	
 	for($i = 0; $i < $length; $i++) 
 	{
-	$index = mt_rand(0, $charSetCount - 1);
-	$result .= $charSet[$index];
+		$index = mt_rand(0, $charSetCount - 1);
+		$result .= $charSet[$index];
 	}
 	return $result;
 }
@@ -132,25 +132,25 @@ function customErrorHandler($errno, $errstr, $errfile, $errline)
 
     switch ($errno) 
     {
-	case E_USER_ERROR:
-		echo "CUSTOM ERROR: [$errno] $errstr\n";
-		echo "  Fatal error on line $errline in file $errfile";
-		echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")\n";
-		echo "Aborting...\n";
-		exit(1);
-		break;
-	
-	case E_USER_WARNING:
-		echo "CUSTOM WARNING: [$errno] $errstr\n";
-		break;
-	
-	case E_USER_NOTICE:
-		echo "CUSTOM NOTICE [$errno] $errstr\n";
-		break;
-	
-	default:
-		echo "Unknown error type: [$errno] $errstr\n";
-		break;
+		case E_USER_ERROR:
+			echo "CUSTOM ERROR: [$errno] $errstr\n";
+			echo "  Fatal error on line $errline in file $errfile";
+			echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")\n";
+			echo "Aborting...\n";
+			exit(1);
+			break;
+		
+		case E_USER_WARNING:
+			echo "CUSTOM WARNING: [$errno] $errstr\n";
+			break;
+		
+		case E_USER_NOTICE:
+			echo "CUSTOM NOTICE [$errno] $errstr\n";
+			break;
+		
+		default:
+			echo "Unknown error type: [$errno] $errstr\n";
+			break;
     }
 
     /* Don't execute PHP internal error handler */
@@ -190,7 +190,7 @@ class TextTokenizer
     {
     	try
     	{
-		$tok = strtok($this->inputText, $this->delimiter);
+			$tok = strtok($this->inputText, $this->delimiter);
 	    	while ($tok !== false) 
 	    	{	
 	    		//if search string is passed, search and filter for custom text processing of tokens
@@ -198,6 +198,8 @@ class TextTokenizer
 	    		{
 	    			$tok = str_replace($search, $replace, $tok);
 	    		}
+	    		
+	    		//trim any extra spaces or newlines
 	    		$tok = trim(strtolower($tok));
 	    		
 	    		//for filtering out alphanumeric words
@@ -209,7 +211,7 @@ class TextTokenizer
 	    		}
 	    		else
 	    		{
-				if(isset($this->innerMap[($tok)]))
+					if(isset($this->innerMap[($tok)]))
 		    		{
 		    			$i = $this->innerMap[$tok];
 		    			$i++;
@@ -221,13 +223,13 @@ class TextTokenizer
 		    		}
 	    		}
 	    		$tok = strtok($this->delimiter);
-		}			
+			}			
     	}
     	catch(Exception $e)
     	{
-		echo 'Caught exception tokenizing text: ',  $e->getMessage(), "\n";
-		exit;
-	}
+			echo 'Caught exception tokenizing text: ',  $e->getMessage(), "\n";
+			exit;
+		}
     }
 
     function printMap()
