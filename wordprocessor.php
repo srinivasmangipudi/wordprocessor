@@ -26,7 +26,7 @@ else
 		$startTime = time();
 		while (false !== ($line = fgets(STDIN)))
 		{
-    			$inputText .= $line;
+    		$inputText .= $line;
 		}
 
 		if(!$inputText)
@@ -190,7 +190,7 @@ class TextTokenizer
     {
     	try
     	{
-		$tok = strtok($this->inputText, $this->delimiter);
+			$tok = strtok($this->inputText, $this->delimiter);
 	    	while ($tok !== false) 
 	    	{	
 	    		//if search string is passed, search and filter for custom text processing of tokens
@@ -223,13 +223,13 @@ class TextTokenizer
 		    		}
 	    		}
 	    		$tok = strtok($this->delimiter);
-		}			
+			}			
     	}
     	catch(Exception $e)
     	{
-		echo 'Caught exception tokenizing text: ',  $e->getMessage(), "\n";
-		exit;
-	}
+			echo 'Caught exception tokenizing text: ',  $e->getMessage(), "\n";
+			exit;
+		}
     }
 
     function printMap()
