@@ -26,7 +26,7 @@ else
 		$startTime = time();
 		while (false !== ($line = fgets(STDIN)))
 		{
-    		$inputText .= $line;
+    			$inputText .= $line;
 		}
 
 		if(!$inputText)
@@ -223,7 +223,7 @@ class TextTokenizer
 		    		}
 	    		}
 	    		$tok = strtok($this->delimiter);
-			}			
+		}			
     	}
     	catch(Exception $e)
     	{
