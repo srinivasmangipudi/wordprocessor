@@ -175,16 +175,16 @@ class TextTokenizer
     private $filterNumbers;
 
 	function __construct($inputText, $filterNumbers, $delimiter) 
-    { 
-    	$this->inputText = $inputText;
-    	$this->filterNumbers = $filterNumbers;
-    	$this->delimiter = $delimiter;
-    }
+	{ 
+		$this->inputText = $inputText;
+		$this->filterNumbers = $filterNumbers;
+		$this->delimiter = $delimiter;
+	}
 
 	public function __destruct() 
 	{
-        unset($this);
-    }
+		unset($this);
+	}
 
     function tokenize($search = null, $replace = '')
     {
