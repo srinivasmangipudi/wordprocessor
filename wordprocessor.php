@@ -113,7 +113,8 @@ function getRandomString()
  
     $result = "";
  
-    for($i = 0; $i < $length; $i++) {
+    for($i = 0; $i < $length; $i++) 
+    {
         $index = mt_rand(0, $charSetCount - 1);
         $result .= $charSet[$index];
     }
@@ -123,31 +124,33 @@ function getRandomString()
 // custom error handler function
 function customErrorHandler($errno, $errstr, $errfile, $errline)
 {
-    if (!(error_reporting() & $errno)) {
+    if (!(error_reporting() & $errno)) 
+    {
         // This error code is not included in error_reporting
         return;
     }
 
-    switch ($errno) {
-    case E_USER_ERROR:
-        echo "CUSTOM ERROR: [$errno] $errstr\n";
-        echo "  Fatal error on line $errline in file $errfile";
-        echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")\n";
-        echo "Aborting...\n";
-        exit(1);
-        break;
+    switch ($errno) 
+    {
+	    case E_USER_ERROR:
+	        echo "CUSTOM ERROR: [$errno] $errstr\n";
+	        echo "  Fatal error on line $errline in file $errfile";
+	        echo ", PHP " . PHP_VERSION . " (" . PHP_OS . ")\n";
+	        echo "Aborting...\n";
+	        exit(1);
+	        break;
 
-    case E_USER_WARNING:
-        echo "CUSTOM WARNING: [$errno] $errstr\n";
-        break;
+	    case E_USER_WARNING:
+	        echo "CUSTOM WARNING: [$errno] $errstr\n";
+	        break;
 
-    case E_USER_NOTICE:
-        echo "CUSTOM NOTICE [$errno] $errstr\n";
-        break;
+	    case E_USER_NOTICE:
+	        echo "CUSTOM NOTICE [$errno] $errstr\n";
+	        break;
 
-    default:
-        echo "Unknown error type: [$errno] $errstr\n";
-        break;
+	    default:
+	        echo "Unknown error type: [$errno] $errstr\n";
+	        break;
     }
 
     /* Don't execute PHP internal error handler */
@@ -190,7 +193,7 @@ class TextTokenizer
 			$tok = strtok($this->inputText, $this->delimiter);
 	    	while ($tok !== false) 
 	    	{	
-	    		//if search string is passed, search and filter for custom processing of tokens
+	    		//if search string is passed, search and filter for custom text processing of tokens
 	    		if($search)
 	    		{
 	    			$tok = str_replace($search, $replace, $tok);
