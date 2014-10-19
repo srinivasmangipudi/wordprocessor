@@ -9,9 +9,10 @@ wordprocessor
 'prompt$ php wordprocessor.php 2 {num_of_words}' : Generates words randomly from within PHP
 
 'prompt$ php wordprocessor.php 3' : GETs 1000 words from random.org API
+ 
+ <br />
 
-
-**Sample Output - with included text file: The Project Gutenberg EBook of The Complete Works of William Shakespeare**
+**Sample Output - with included text file:** The Project Gutenberg EBook of The Complete Works of William Shakespeare
 
 $ cat ws.txt | php wordprocessor.php 1
 
